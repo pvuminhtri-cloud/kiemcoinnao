@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - 3D Glassmorphism Dashboard</title>
+    <meta name="description" content="3D Glassmorphism Dashboard Template by TemplateMo">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="templatemo-glass-admin-style.css">
+
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="background"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="dashboard">
+        <!-- Sidebar Container -->
+        <aside class="sidebar" id="sidebar"></aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navbar -->
+            <nav class="navbar">
+                <div class="page-header">
+                    <h1 class="page-title">Tài Khoản</h1>
+                </div>
+                <div class="navbar-right">
+
+                    <button class="nav-btn" id="theme-toggle" title="Toggle Light/Dark Mode">
+                        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="4" />
+                            <path d="M12 2v2" />
+                            <path d="M12 20v2" />
+                            <path d="M4.93 4.93l1.41 1.41" />
+                            <path d="M17.66 17.66l1.41 1.41" />
+                            <path d="M2 12h2" />
+                            <path d="M20 12h2" />
+                            <path d="M6.34 17.66l-1.41 1.41" />
+                            <path d="M19.07 4.93l-1.41 1.41" />
+                        </svg>
+                        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            style="display: none;">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Settings Content -->
+            <div class="settings-grid" style="grid-template-columns: 1fr;">
+                <!-- Consolidated Profile Content -->
+                <div class="glass-card">
+                    <div class="settings-tab-content active" style="display: block;">
+                        <div class="profile-header">
+                            <div class="profile-avatar-large" id="profileAvatar">
+                                TM
+                                <div class="profile-avatar-edit" id="avatarEditBtn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <input type="file" id="profilePictureInput" accept="image/*" style="display: none;">
+                            <div class="profile-info">
+                                <h2 id="profileDisplayName">TemplateMo</h2>
+                                <p><span id="profileDisplayEmail">admin@templatemo.com</span>
+                            </div>
+                        </div>
+
+                        <!-- Profile Information -->
+                        <div class="settings-section">
+                            <h3 class="settings-section-title">Thông Tin Cá Nhân</h3>
+                            <div class="form-grid">
+                                <div class="form-group-settings full-width">
+                                    <label>Họ và Tên</label>
+                                    <input type="text" id="fullnameInput" value="Template Mo">
+                                </div>
+                                <div class="form-group-settings full-width">
+                                    <label>Địa Chỉ Email (Không thể thay đổi)</label>
+                                    <input type="email" id="emailInput" value="admin@templatemo.com" disabled readonly
+                                        style="opacity: 0.6; cursor: not-allowed;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Withdrawal Information -->
+                        <div class="settings-section">
+                            <h3 class="settings-section-title">Thông Tin Rút Tiền</h3>
+                            <div class="form-grid">
+                                <div class="form-group-settings">
+                                    <label>Tên Ngân Hàng</label>
+                                    <select class="settings-select" id="bankNameInput">
+                                        <option value="">Chọn ngân hàng</option>
+                                        <option>ACB</option>
+                                        <option>Agribank</option>
+                                        <option>BIDV</option>
+                                        <option>MB Bank</option>
+                                        <option>Momo</option>
+                                        <option>Techcombank</option>
+                                        <option>Vietcombank</option>
+                                    </select>
+                                </div>
+                                <div class="form-group-settings">
+                                    <label>Số Tài Khoản</label>
+                                    <input type="text" id="bankAccountInput" placeholder="Nhập số tài khoản">
+                                </div>
+                                <div class="form-group-settings full-width">
+                                    <label>Tên Chủ Tài Khoản</label>
+                                    <input type="text" id="bankAccountNameInput" placeholder="Nhập tên chủ tài khoản"
+                                        style="text-transform: uppercase;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="settings-section">
+                            <h3 class="settings-section-title">Bảo Mật</h3>
+                            <div class="form-grid">
+                                <div class="form-group-settings full-width">
+                                    <label>Mật Khẩu Hiện Tại</label>
+                                    <input type="password" id="currentPasswordInput"
+                                        placeholder="Nhập mật khẩu hiện tại">
+                                </div>
+                                <div class="form-group-settings">
+                                    <label>Mật Khẩu Mới</label>
+                                    <input type="password" id="newPasswordInput" placeholder="Nhập mật khẩu mới">
+                                </div>
+                                <div class="form-group-settings">
+                                    <label>Xác Nhận Mật Khẩu</label>
+                                    <input type="password" id="confirmPasswordInput"
+                                        placeholder="Xác nhận mật khẩu mới">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="btn-group"
+                            style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--glass-border);">
+                            <button class="btn btn-primary" id="saveSettingsBtn" style="width: auto;">Lưu Thay
+                                Đổi</button>
+                            <button class="btn btn-secondary" id="cancelSettingsBtn" style="width: auto;">Hủy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="notificationToast" class="notification-toast"></div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+    </button>
+
+    <!-- Footer -->
+    <footer class="site-footer"></footer>
+
+    <script src="components.js"></script>
+    <script src="api.js"></script>
+    <script src="templatemo-glass-admin-script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cấp Bậc - 3D Glassmorphism Dashboard</title>
+    <meta name="description" content="3D Glassmorphism Dashboard Template by TemplateMo">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="templatemo-glass-admin-style.css">
+    <style>
+        .rank-container {
+            padding: 20px 0;
+        }
+
+        .rank-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .rank-card {
+            position: relative;
+            padding: 30px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .rank-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--emerald-light);
+        }
+
+        .rank-card.current-rank {
+            border: 2px solid var(--emerald-light);
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .current-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--emerald-light);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .rank-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .rank-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .rank-icon svg {
+            width: 30px;
+            height: 30px;
+            color: #fff;
+        }
+
+        .rank-name {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .rank-price {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .rank-benefits {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 25px 0;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        .benefit-item svg {
+            width: 18px;
+            height: 18px;
+            color: var(--emerald-light);
+        }
+
+        .rank-action-btn {
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            border: none;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .rank-action-btn:hover {
+            background: var(--emerald-light);
+            color: #fff;
+            border-color: var(--emerald-light);
+        }
+
+        .rank-action-btn.active-btn {
+            background: var(--emerald-light);
+            color: #fff;
+            border-color: var(--emerald-light);
+            cursor: default;
+        }
+
+        .progress-section {
+            margin-bottom: 40px;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 15px;
+        }
+
+        .progress-label h2 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .progress-bar-container {
+            height: 12px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--emerald), var(--emerald-light));
+            width: 20%;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="background"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="dashboard">
+        <!-- Sidebar Container -->
+        <aside class="sidebar" id="sidebar"></aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navbar -->
+            <nav class="navbar">
+                <div class="page-header">
+                    <h1 class="page-title">Cấp Bậc Thành Viên</h1>
+                </div>
+                <div class="navbar-right">
+                    <button class="nav-btn" id="theme-toggle" title="Toggle Light/Dark Mode">
+                        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="4" />
+                            <path d="M12 2v2" />
+                            <path d="M12 20v2" />
+                            <path d="M4.93 4.93l1.41 1.41" />
+                            <path d="M17.66 17.66l1.41 1.41" />
+                            <path d="M2 12h2" />
+                            <path d="M20 12h2" />
+                            <path d="M6.34 17.66l-1.41 1.41" />
+                            <path d="M19.07 4.93l-1.41 1.41" />
+                        </svg>
+                        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            style="display: none;">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+
+            <section class="rank-container">
+                <!-- Current Rank Progress -->
+                <div class="glass-card progress-section">
+                    <div class="progress-info">
+                        <div class="progress-label">
+                            <p class="text-secondary">Cấp bậc hiện tại</p>
+                            <h2>Đồng (Bronze)</h2>
+                        </div>
+                        <div class="progress-stats">
+                            <span class="text-primary">200 / 1000</span>
+                            <span class="text-secondary"> điểm kinh nghiệm</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill"></div>
+                    </div>
+                </div>
+
+                <!-- Rank Cards Grid -->
+                <div class="rank-grid">
+                    <!-- Rank 1 -->
+                    <div class="glass-card rank-card current-rank">
+                        <span class="current-badge">Hiện tại</span>
+                        <div class="rank-header">
+                            <div class="rank-icon" style="background: #cd7f32;">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="rank-name">Đồng</h3>
+                                <p class="rank-price">Mặc định</p>
+                            </div>
+                        </div>
+                        <ul class="rank-benefits">
+                            <li class="benefit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Thưởng thêm 0% mỗi nhiệm vụ
+                            </li>
+                            <li class="benefit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Rút tiền tối thiểu 15 Coin
+                            </li>
+                            <li class="benefit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Thời gian rút 1-3 ngày
+                            </li>
+                        </ul>
+                        <button class="rank-action-btn active-btn">Đang sở hữu</button>
+                    </div>
+
+                    <!-- Rank 2 -->
+                    <div class="glass-card rank-card">
+                        <div class="rank-header">
+                            <div class="rank-icon" style="background: #c0c0c0;">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="8" r="7" />
+                                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="rank-name">Bạc</h3>
+                                <p class="rank-price">Kiếm được 100 Coin</p>
+                            </div>
+                        </div>
+                        <ul class="rank-benefits">
+                            <li class="benefit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Thưởng thêm 2% mỗi nhiệm vụ
+                            </li>
+                            <li class="benefit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Rút tiền tối thiểu 100 Coin
+                            </li>
+                            <li class="benefit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Thời gian rút trong 24h
+                            </li>
+                        </ul>
+                        <button class="rank-action-btn">Nâng cấp</button>
+                    </div>
+
+                    <!-- Rank 3 -->
+                    <div class="glass-card rank-card">
+                        <div class="rank-header">
+                            <div class="rank-icon" style="background: #ffd700;">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="rank-name">Vàng</h3>
+                                <p class="rank-price">Kiếm được 300 Coin</p>
+                            </div>
+                        </div>
+                        <ul class="rank-benefits">
+                            <li class="benefit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Thưởng thêm 5% mỗi nhiệm vụ
+                            </li>
+                            <li class="benefit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Rút tiền tối thiểu 10 Coin
+                            </li>
+                            <li class="benefit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Thời gian rút trong 12h
+                            </li>
+                        </ul>
+                        <button class="rank-action-btn">Nâng cấp</button>
+                    </div>
+
+                    <!-- Rank 4 -->
+                    <div class="glass-card rank-card">
+                        <div class="rank-header">
+                            <div class="rank-icon" style="background: #00d9ff;">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 3h12l4 6-10 12L2 9z" />
+                                    <path d="M11 3L8 9l3 12 3-12-3-6z" />
+                                    <path d="M2 9h20" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="rank-name">Kim Cương</h3>
+                                <p class="rank-price">Kiếm được 500 Coin</p>
+                            </div>
+                        </div>
+                        <ul class="rank-benefits">
+                            <li class="benefit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Thưởng thêm 10% mỗi nhiệm vụ
+                            </li>
+                            <li class="benefit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Rút tiền tối thiểu 5 Coin
+                            </li>
+                            <li class="benefit-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
+                                Thời gian rút trong 1h
+                            </li>
+                        </ul>
+                        <button class="rank-action-btn">Nâng cấp</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <line x1="3" y1="18" x2="21" y2="18" />
+                </svg>
+            </button>
+
+            <!-- Footer -->
+            <footer class="site-footer"></footer>
+
+        </main>
+    </div>
+
+    <script src="components.js"></script>
+    <script src="api.js"></script>
+    <script src="templatemo-glass-admin-script.js"></script>
+</body>
+
+</html>

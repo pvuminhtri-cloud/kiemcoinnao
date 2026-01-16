@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý User - Admin Panel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../templatemo-glass-admin-style.css">
+    <script src="../api.js"></script>
+    <script src="../templatemo-glass-admin-script.js"></script>
+    <script src="logic.js"></script>
+    <script src="menu.js"></script>
+    <style>
+        .user-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+
+        .user-tab {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            color: #ccc;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .user-tab.active {
+            background: var(--emerald);
+            color: white;
+            border-color: var(--emerald);
+        }
+
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .status-normal {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .status-suspicious {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+        }
+
+        .status-banned {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+
+        .action-btns {
+            display: flex;
+            gap: 5px;
+        }
+
+        .action-btn {
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            filter: brightness(1.1);
+        }
+
+        .btn-ban {
+            background: #ef4444;
+        }
+
+        .btn-warn {
+            background: #f59e0b;
+        }
+
+        .btn-normal {
+            background: #10b981;
+        }
+
+        .btn-edit {
+            background: #06b6d4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="dashboard">
+        <aside class="sidebar" id="sidebar">
+            <!-- Content loaded from menu.js -->
+        </aside>
+
+        <main class="main-content">
+            <nav class="navbar">
+
+                <div class="navbar-right">
+                    <div class="search-box">
+                        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                        <input type="text" class="search-input" id="user-search" placeholder="Tìm username...">
+                    </div>
+                    <button class="nav-btn" id="sync-users-btn" title="Lấy data từ web">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M23 4v6h-6" />
+                            <path d="M1 20v-6h6" />
+                            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+                        </svg>
+                    </button>
+
+                </div>
+            </nav>
+
+            <div class="user-tabs">
+                <div class="user-tab active" data-status="all">Tất cả</div>
+                <div class="user-tab" data-status="normal">Bình thường</div>
+                <div class="user-tab" data-status="suspicious">Nghi ngờ</div>
+                <div class="user-tab" data-status="banned">Bị ban</div>
+            </div>
+
+            <section class="table-card glass-card">
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Người Dùng</th>
+                                <th>Số Dư</th>
+                                <th>Đã Rút</th>
+                                <th>Ngân Hàng</th>
+                                <th>IP Gần Nhất</th>
+                                <th>Trạng Thái</th>
+                                <th>Ngày Tạo</th>
+                                <th>Hành Động</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-users-body">
+                            <!-- Users will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <button class="mobile-menu-toggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+    </button>
+    <!-- Password Edit Modal -->
+    <div id="passwordEditModal" class="link-modal" style="display: none;">
+        <div class="link-modal-content">
+            <div class="link-modal-header">
+                <h2 id="modal-username">Đổi Mật Khẩu</h2>
+                <button class="link-modal-close" onclick="closePasswordModal()">&times;</button>
+            </div>
+            <div class="link-modal-body">
+                <div class="form-group-settings full-width" style="margin-bottom: 20px;">
+                    <label>Mật Khẩu Hiện Tại</label>
+                    <input type="text" id="current-password-display" readonly
+                        style="background: rgba(255,255,255,0.05); color: var(--gold); font-weight: 600;">
+                </div>
+                <div class="form-group-settings full-width" style="margin-bottom: 30px;">
+                    <label>Mật Khẩu Mới</label>
+                    <input type="text" id="new-password-input" placeholder="Nhập mật khẩu mới">
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-primary" id="btn-update-password">Cập Nhật</button>
+                    <button class="btn btn-secondary" onclick="closePasswordModal()">Hủy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="notificationToast" class="notification-toast"></div>
+</body>
+
+</html>

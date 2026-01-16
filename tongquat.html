@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - 3D Glassmorphism Dashboard</title>
+    <meta name="description" content="3D Glassmorphism Dashboard Template by TemplateMo">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../templatemo-glass-admin-style.css">
+    <script src="../api.js"></script>
+    <script src="../templatemo-glass-admin-script.js"></script>
+    <script src="logic.js"></script>
+    <script src="menu.js"></script>
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="background"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="dashboard">
+        <aside class="sidebar" id="sidebar">
+            <!-- Content loaded from menu.js -->
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navbar -->
+            <nav class="navbar">
+                <div class="navbar-right">
+                </div>
+            </nav>
+
+            <!-- Stats Cards -->
+            <section class="stats-grid">
+                <div class="glass-card glass-card-3d stat-card">
+                    <div class="stat-card-inner">
+                        <div class="stat-info">
+                            <h3>Tổng Thành Viên</h3>
+                            <div class="stat-value" id="stats-total-users">0</div>
+                        </div>
+                        <div class="stat-icon cyan">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--emerald-light)" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card glass-card-3d stat-card">
+                    <div class="stat-card-inner">
+                        <div class="stat-info">
+                            <h3>Người Đang Online</h3>
+                            <div class="stat-value" id="stats-online-users">0</div>
+                            <span class="stat-change positive">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                                </svg>
+                                Live
+                            </span>
+                        </div>
+                        <div class="stat-icon magenta">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path
+                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card glass-card-3d stat-card">
+                    <div class="stat-card-inner">
+                        <div class="stat-info">
+                            <h3>Tổng Tiền Đã Trả</h3>
+                            <div class="stat-value" id="stats-total-paid">0</div>
+                        </div>
+                        <div class="stat-icon purple">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card glass-card-3d stat-card">
+                    <div class="stat-card-inner">
+                        <div class="stat-info">
+                            <h3>Đơn Chờ Duyệt</h3>
+                            <div class="stat-value" id="stats-pending-withdrawals">0</div>
+                            <span class="stat-change warning" style="color: var(--amber);">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                </svg>
+                                Pending
+                            </span>
+                        </div>
+                        <div class="stat-icon success">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2">
+                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                                <line x1="1" y1="10" x2="23" y2="10"></line>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Content Grid -->
+            <section class="content-grid">
+                <!-- Main Chart -->
+                <div class="glass-card chart-card">
+                    <div class="card-header">
+                        <div>
+                            <h2 class="card-title">Traffic Overview</h2>
+                            <p class="card-subtitle">Daily visitors and page views</p>
+                        </div>
+                        <div class="card-actions">
+                            <button class="card-btn">7 Days</button>
+                            <button class="card-btn active">30 Days</button>
+                            <button class="card-btn">90 Days</button>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <div class="chart-container">
+                            <div class="chart-y-axis">
+                                <span class="y-value">50K</span>
+                                <span class="y-value">40K</span>
+                                <span class="y-value">30K</span>
+                                <span class="y-value">20K</span>
+                                <span class="y-value">10K</span>
+                                <span class="y-value">0</span>
+                            </div>
+                            <div class="chart-placeholder">
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-emerald" style="height: 80px;"></div><span
+                                        class="chart-label">1</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-emerald" style="height: 95px;"></div><span
+                                        class="chart-label">2</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-emerald" style="height: 70px;"></div><span
+                                        class="chart-label">3</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-emerald" style="height: 110px;"></div><span
+                                        class="chart-label">4</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-emerald" style="height: 130px;"></div><span
+                                        class="chart-label">5</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-gold" style="height: 145px;"></div><span
+                                        class="chart-label">6</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-gold" style="height: 120px;"></div><span
+                                        class="chart-label">7</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-gold" style="height: 100px;"></div><span
+                                        class="chart-label">8</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-gold" style="height: 135px;"></div><span
+                                        class="chart-label">9</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-gold" style="height: 155px;"></div><span
+                                        class="chart-label">10</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-coral" style="height: 140px;"></div><span
+                                        class="chart-label">11</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-coral" style="height: 125px;"></div><span
+                                        class="chart-label">12</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-coral" style="height: 160px;"></div><span
+                                        class="chart-label">13</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-coral" style="height: 175px;"></div><span
+                                        class="chart-label">14</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-coral" style="height: 150px;"></div><span
+                                        class="chart-label">15</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-teal" style="height: 165px;"></div><span
+                                        class="chart-label">16</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-teal" style="height: 145px;"></div><span
+                                        class="chart-label">17</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-teal" style="height: 130px;"></div><span
+                                        class="chart-label">18</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-teal" style="height: 155px;"></div><span
+                                        class="chart-label">19</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-teal" style="height: 180px;"></div><span
+                                        class="chart-label">20</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-amber" style="height: 170px;"></div><span
+                                        class="chart-label">21</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-amber" style="height: 160px;"></div><span
+                                        class="chart-label">22</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-amber" style="height: 185px;"></div><span
+                                        class="chart-label">23</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-amber" style="height: 175px;"></div><span
+                                        class="chart-label">24</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-amber" style="height: 165px;"></div><span
+                                        class="chart-label">25</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-emerald" style="height: 190px;"></div><span
+                                        class="chart-label">26</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-emerald" style="height: 175px;"></div><span
+                                        class="chart-label">27</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-emerald" style="height: 195px;"></div><span
+                                        class="chart-label">28</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-emerald" style="height: 185px;"></div><span
+                                        class="chart-label">29</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar bar-emerald" style="height: 200px;"></div><span
+                                        class="chart-label">30</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Popular Tasks -->
+                <div class="glass-card progress-card" id="popular-tasks-card">
+                    <div class="card-header">
+                        <div>
+                            <h2 class="card-title">Nhiệm Vụ Phổ Biến</h2>
+                        </div>
+                    </div>
+                    <div id="popular-tasks-list">
+                        <!-- Content populated by JS -->
+                        <div style="text-align: center; padding: 20px; opacity: 0.5;">Đang tải dữ liệu...</div>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                </button>
+
+                <!-- Footer -->
+                <footer class="site-footer">
+                    <p>Copyright © 2026 Your Company. Designed by <a href="https://templatemo.com" target="_blank"
+                            rel="nofollow">TemplateMo</a></p>
+                </footer>
+        </main>
+    </div>
+    <!-- TemplateMo 607 Glass Admin -->
+    <div id="notificationToast" class="notification-toast"></div>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duyệt Rút Tiền - Admin Panel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../templatemo-glass-admin-style.css">
+    <script src="../api.js"></script>
+    <script src="../templatemo-glass-admin-script.js"></script>
+    <script src="logic.js"></script>
+    <script src="menu.js"></script>
+</head>
+
+<body>
+    <div class="background"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="dashboard">
+        <aside class="sidebar" id="sidebar">
+            <!-- Content loaded from menu.js -->
+        </aside>
+
+        <main class="main-content">
+            <nav class="navbar">
+                <div class="navbar-right">
+                </div>
+            </nav>
+
+            <section class="table-card glass-card">
+                <div class="card-header">
+                    <h2 class="card-title">Yêu Cầu Đang Chờ</h2>
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Người Dùng</th>
+                                <th>Số Tiền</th>
+                                <th>Tài Khoản</th>
+                                <th>Thời Gian</th>
+                                <th>Hành Động</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-withdrawals-body">
+                            <!-- Pending requests will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <button class="mobile-menu-toggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+    </button>
+    <div id="notificationToast" class="notification-toast"></div>
+</body>
+
+</html>

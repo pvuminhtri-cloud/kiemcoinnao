@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu - KiemCoinNao</title>
+    <meta name="description"
+        content="KiemCoinNao - Nền tảng kiếm tiền online uy tín, thực hiện nhiệm vụ đơn giản và nhận thưởng hấp dẫn.">
+    <link rel="canonical" href="https://kiemcoinnao.xyz/">
+    <meta property="og:title" content="Giới thiệu - KiemCoinNao">
+    <meta property="og:url" content="https://kiemcoinnao.xyz/">
+    <meta property="og:type" content="website">
+    <meta property="og:description"
+        content="KiemCoinNao - Nền tảng kiếm tiền online uy tín, thực hiện nhiệm vụ đơn giản và nhận thưởng hấp dẫn.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Giới thiệu - KiemCoinNao">
+    <meta name="twitter:description"
+        content="KiemCoinNao - Nền tảng kiếm tiền online uy tín, thực hiện nhiệm vụ đơn giản và nhận thưởng hấp dẫn.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="templatemo-glass-admin-style.css">
+
+    <style>
+        /* About Page Specific Styles */
+        .about-page {
+            min-height: 100vh;
+            padding: 0;
+        }
+
+        .about-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .about-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .about-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--emerald), var(--gold));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .about-nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
+
+        /* Hero Section */
+        .about-hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .about-hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--emerald-light), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Stats Grid */
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .about-stat {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+
+        .about-stat:hover {
+            background: var(--glass-hover);
+            transform: translateY(-5px);
+        }
+
+        .about-stat-value {
+            font-family: 'Space Mono', monospace;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--emerald-light);
+            margin-bottom: 8px;
+        }
+
+        .about-stat-label {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Features Grid */
+        .section-title {
+            font-size: 32px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--text-primary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+
+        .feature-card:hover {
+            background: var(--glass-hover);
+            transform: translateY(-5px);
+            border-color: var(--emerald-light);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(52, 211, 153, 0.2), rgba(212, 165, 116, 0.1));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .feature-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--emerald-light);
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* About Footer */
+        .about-footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 14px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .about-footer a {
+            color: var(--emerald-light);
+        }
+
+        .about-footer a:hover {
+            color: var(--gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .templates-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-hero h1 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-header {
+                padding: 15px 20px;
+            }
+
+            .about-container {
+                padding: 40px 20px;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .templates-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-hero h1 {
+                font-size: 28px;
+            }
+
+            .about-hero p {
+                font-size: 16px;
+            }
+
+            .cta-section {
+                padding: 30px 20px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .cta-buttons .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stat-value {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="background"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="about-page">
+        <!-- Header -->
+        <header class="about-header">
+            <a href="index.html" target="_blank" rel="nofollow" class="about-logo">
+                <div class="about-logo-icon">K</div>
+                KiemCoinNao
+            </a>
+            <div class="about-nav">
+                <a href="login.html" class="btn btn-primary" style="padding: 10px 20px;">Đăng Nhập</a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="about-container">
+            <!-- Hero Section -->
+            <section class="about-hero">
+                <h1>Chào mừng đến với KiemCoinNao</h1>
+                <p>TemplateMo has been providing 100% free website templates since 2008. All templates are ready to
+                    download, easy to customize, and perfect for any project. Our templates are AI-customizable, so you
+                    can upload to Claude AI to personalize colors, content, and layouts instantly.</p>
+            </section>
+
+            <!-- Stats -->
+            <section class="about-stats">
+                <div class="about-stat">
+                    <div class="about-stat-label">Đơn rút tiền</div>
+                    <div class="about-stat-value">20+</div>
+                </div>
+                <div class="about-stat">
+                    <div class="about-stat-label">Số coin đã rút</div>
+                    <div class="about-stat-value">2m+</div>
+                </div>
+                <div class="about-stat">
+                    <div class="about-stat-label">Người dùng</div>
+                    <div class="about-stat-value">1000+</div>
+                </div>
+            </section>
+
+            <!-- Features -->
+            <h2 class="section-title">Vì sao bạn lên chọn KiemCoinNao</h2>
+            <section class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                            <path d="M2 17l10 5 10-5" />
+                            <path d="M2 12l10 5 10-5" />
+                        </svg>
+                    </div>
+                    <h3>AI-Customizable</h3>
+                    <p>Upload template files to Claude AI and customize colors, content, layouts with simple prompts.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2" />
+                            <line x1="12" y1="18" x2="12" y2="18" />
+                        </svg>
+                    </div>
+                    <h3>Mobile Responsive</h3>
+                    <p>All templates are fully responsive and work beautifully on desktops, tablets, and phones.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+                    </div>
+                    <h3>Instant Download</h3>
+                    <p>No signup, no registration. Just click download and get your template files immediately.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6" />
+                            <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                    </div>
+                    <h3>Clean Code</h3>
+                    <p>Well-organized HTML, CSS, and JavaScript that's easy to understand and modify.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                    </div>
+                    <h3>Commercial Use</h3>
+                    <p>Use templates for personal or commercial projects. Just keep the footer credit link.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                    </div>
+                    <h3>Regular Updates</h3>
+                    <p>New templates added frequently with modern designs and latest web technologies.</p>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="about-footer site-footer"></footer>
+        </div>
+
+        <script src="components.js"></script>
+        <script src="api.js"></script>
+        <script src="templatemo-glass-admin-script.js"></script>
+</body>
+
+</html>

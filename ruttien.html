@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rút Tiền - 3D Glassmorphism Dashboard</title>
+    <meta name="description" content="3D Glassmorphism Dashboard Template by TemplateMo">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="templatemo-glass-admin-style.css">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="background"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="dashboard">
+        <!-- Sidebar Container -->
+        <aside class="sidebar" id="sidebar"></aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navbar -->
+            <nav class="navbar">
+                <div class="page-header">
+                </div>
+                <div class="navbar-right">
+                    <button class="nav-btn" id="theme-toggle" title="Toggle Light/Dark Mode">
+                        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="4" />
+                            <path d="M12 2v2" />
+                            <path d="M12 20v2" />
+                            <path d="M4.93 4.93l1.41 1.41" />
+                            <path d="M17.66 17.66l1.41 1.41" />
+                            <path d="M2 12h2" />
+                            <path d="M20 12h2" />
+                            <path d="M6.34 17.66l-1.41 1.41" />
+                            <path d="M19.07 4.93l-1.41 1.41" />
+                        </svg>
+                        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            style="display: none;">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Withdraw Page Content -->
+            <section class="referral-container">
+                <!-- Stats Grid -->
+                <div class="withdraw-stats-grid">
+                    <div class="referral-banner">
+                        <div class="referral-icon-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+                                <line x1="1" y1="10" x2="23" y2="10" />
+                            </svg>
+                        </div>
+                        <div class="referral-stats">
+                            <h2>Số dư đang có</h2>
+                            <div class="count" id="withdraw-balance">0 Coin</div>
+                        </div>
+                    </div>
+
+                    <div class="referral-banner">
+                        <div class="referral-icon-box" style="background: #f59e0b;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                        </div>
+                        <div class="referral-stats">
+                            <h2>Đang chờ rút</h2>
+                            <div class="count" id="withdraw-pending">0 Coin</div>
+                        </div>
+                    </div>
+
+                    <div class="referral-banner">
+                        <div class="referral-icon-box" style="background: #10b981;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                <polyline points="22 4 12 14.01 9 11.01" />
+                            </svg>
+                        </div>
+                        <div class="referral-stats">
+                            <h2>Tổng đã rút</h2>
+                            <div class="count" id="withdraw-total">0 Coin</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="referral-description">
+                    Nhập số coin bạn muốn rút và thông tin tài khoản ngân hàng. Yêu cầu rút tiền sẽ được xử lý trong
+                    vòng 1-3 ngày.
+                </div>
+
+                <div class="referral-warning">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99zM11 16h2v2h-2zm0-7h2v5h-2z" />
+                    </svg>
+                    Số coin rút tối thiểu là 15.000 Coin
+                    <br>
+                    Nhập sai thông tin rút tiền sẽ hoàn lại 50% số tiền rút.
+                </div>
+
+                <div class="copy-section">
+                    <input type="text" id="withdraw-amount-input" class="link-input"
+                        placeholder="Nhập số coin muốn rút...">
+                    <button id="withdraw-submit-btn" class="copy-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <polyline points="19 12 12 19 5 12" />
+                        </svg>
+                        Rút Tiền
+                    </button>
+                </div>
+
+                <!-- Withdrawal History Section -->
+                <div class="glass-card withdrawal-history-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Lịch Sử Rút Tiền</h2>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Thời gian</th>
+                                    <th>Số lượng</th>
+                                    <th>Hình thức</th>
+                                    <th>Trạng thái</th>
+                                </tr>
+                            </thead>
+                            <tbody id="withdrawal-history-body">
+                                <!-- Data will be loaded dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="withdrawal-pagination-container"></div>
+                </div>
+
+            </section>
+
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <line x1="3" y1="18" x2="21" y2="18" />
+                </svg>
+            </button>
+
+
+            <!-- Footer -->
+            <footer class="site-footer"></footer>
+
+        </main>
+    </div>
+
+    <script src="components.js"></script>
+    <script src="api.js"></script>
+    <script src="templatemo-glass-admin-script.js"></script>
+</body>
+
+</html>
