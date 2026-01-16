@@ -12,6 +12,8 @@ const allowedOrigins = [
     'http://127.0.0.1:3000',
     'https://kiemcoinnao.xyz',
     'http://kiemcoinnao.xyz',
+    'https://www.kiemcoinnao.xyz',
+    'http://www.kiemcoinnao.xyz',
     process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null
 ].filter(Boolean);
 
